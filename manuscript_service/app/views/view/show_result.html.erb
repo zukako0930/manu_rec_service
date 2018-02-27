@@ -1,0 +1,16 @@
+<table class = 'result'>
+  <thead>
+    <tr>
+      <th>タイトル</th>
+      <th>お仕事内容</th>
+      <!-- <th colspan="3"></th> -->
+    </tr>
+  </thead>
+  <% @manuscripts.each do |manuscript|%>
+    <tr>
+      <td><%= manuscript.title %></td>
+      <td><%= manuscript.job_content %></td>
+    </tr>
+  <% end %>
+
+</table>

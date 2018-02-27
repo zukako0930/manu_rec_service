@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @manuscript.company %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @manuscript.title %>
+</p>
+
+<p>
+  <strong>Job content:</strong>
+  <%= @manuscript.job_content %>
+</p>
+
+<p>
+  <strong>Remarks:</strong>
+  <%= @manuscript.remarks %>
+</p>
+
+<%= link_to 'Edit', edit_manuscript_path(@manuscript) %> |
+<%= link_to 'Back', manuscripts_path %>

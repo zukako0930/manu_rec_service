@@ -1,0 +1,37 @@
+<%= form_with(model: manuscript, local: true) do |form| %>
+  <% if manuscript.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(manuscript.errors.count, "error") %> prohibited this manuscript from being saved:</h2>
+
+      <ul>
+      <% manuscript.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :company %>
+    <%= form.text_field :company, id: :manuscript_company %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :manuscript_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :job_content %>
+    <%= form.text_field :job_content, id: :manuscript_job_content %>
+  </div>
+
+  <div class="field">
+    <%= form.label :remarks %>
+    <%= form.text_field :remarks, id: :manuscript_remarks %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
