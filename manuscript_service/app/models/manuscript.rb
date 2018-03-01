@@ -9,7 +9,9 @@ class Manuscript < ApplicationRecord
   end
 
   def self.pytest(name)
-    file_path = Rails.root.join('app', 'models','manuscripts.py').to_s
+    file_path = Rails.root.join('search_by_lda','src','search.py').to_s
+    python_path = Rails.root.join('search_by_lda').to_s
+    system("cd #{python_path}")
     system("python #{file_path}")
   end
 
