@@ -1,5 +1,8 @@
-<h1>類似求人</h1>
-
+<h1>類似求人検索</h1>
+<%= form_tag manuscripts_path, :method => 'get' do %>
+<%= text_field_tag :search, params[:search] %>
+<%= submit_tag "Search", :name => nil %>
+<% end %>
 <table class = 'result'>
   <thead>
     <tr>

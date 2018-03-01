@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Manuscripts</h1>
+<%= form_tag manuscripts_path, :method => 'get' do %>
+<%= text_field_tag :search, params[:search] %>
+<%= submit_tag "Search", :name => nil %>
+<% end %>
+<!-- この入力をスペース区切りでcsvに書き出す。 -->
 
 <table>
   <thead>

@@ -1,10 +1,18 @@
 class ManuscriptsController < ApplicationController
   before_action :set_manuscript, only: [:show, :edit, :update, :destroy]
-
+  require 'csv'
   # GET /manuscripts
   # GET /manuscripts.json
   def index
-    @manuscripts = Manuscript.all
+    @manuscripts = Manuscript.pytest(params[:search])
+    #現状ではsearch_words.csv
+    # pytestによって出力されたファイルからidを読んで.whereで選択する。
+    # idxs = CSV.read('test.csv', headers: false)[0] #idxsは２次元配列なので要素を取り出す
+    # @manuscripts = Manuscript.search_by_index(idxs)
+    # @manuscripts = Manuscript.all
+    # render 'view/show_result'
+    # @manuscripts = Manuscript.search(params[:search])
+    # @manuscripts = Manuscript.all
   end
 
   # GET /manuscripts/1
