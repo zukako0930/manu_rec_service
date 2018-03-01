@@ -48,6 +48,13 @@ $ rails db:migrate
 `rails db:create:all`で上手く行くらしい(パスワードは空で)。
 sockエラーの場合はその設定をコメントアウトで良いっぽい。
 
+#### データベースの設定変更
+デフォルトだとVARCHAR(255)になっているので、
+```
+mysql> alter table テーブル名 modify 変数名 varchar(2000);
+```
+2000とかに増やす。
+
 
 ### MySQLへのcsvデータの読み込み
 ```
