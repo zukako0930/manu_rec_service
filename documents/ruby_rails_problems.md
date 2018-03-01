@@ -43,6 +43,12 @@ $ rails db:migrate
 でモデルに合わせたテーブルを生成。
 そのテーブルに以下のようにしてcsvを読み込ませる。
 
+#### 追記(ディップのサーバ)
+`database.yml`のユーザを`root`にすれば、
+`rails db:create:all`で上手く行くらしい(パスワードは空で)。
+sockエラーの場合はその設定をコメントアウトで良いっぽい。
+
+
 ### MySQLへのcsvデータの読み込み
 ```
 $ mysql --local-infile=1
@@ -56,6 +62,13 @@ mysql> LOAD DATA LOCAL INFILE './KEN_ALL.CSV' INTO TABLE zipcode FIELDS TERMINAT
 Query OK, 123948 rows affected (1.97 sec)
 Records: 123948  Deleted: 0  Skipped: 0  Warnings: 0
 ```
+
+読み込みに失敗した場合は、
+```
+$ rails db:reset DISABLE_DATABASE_ENVIRONMENT_CHECK=1 
+```
+でテーブルの構造(設定)を保ったままデータだけを空にできる。
+
 - ハマった点
 上記のようにしたところ、`Records:1`になり１件しか読み込んでくれなかった。
 調べたところ`\r\n`が悪さをしているらしい。Pandas.to_csvのline_terminaterは`\n`だったため、`\n`にしないといけないらしい。
