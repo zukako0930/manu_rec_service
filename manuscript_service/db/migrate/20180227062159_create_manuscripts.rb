@@ -3,8 +3,8 @@ class CreateManuscripts < ActiveRecord::Migration[5.1]
     create_table :manuscripts do |t|
       t.string :company
       t.string :title
-      t.string :job_content
-      t.string :remarks
+      t.text :job_content
+      t.text :remarks
 
       t.timestamps
     end

@@ -7,17 +7,17 @@
 
 <p>
   <strong>Title:</strong>
-  <%= @manuscript.title %>
+  <%= @manuscript.title.gsub(/(￥r￥n|￥r|￥n)/, "") %>
 </p>
 
-<p>
+<p height='250px'>
   <strong>Job content:</strong>
-  <%= @manuscript.job_content %>
+  <%= @manuscript.job_content.gsub(/(￥r￥n|￥r|￥n)/, "") %>
 </p>
 
 <p>
   <strong>Remarks:</strong>
-  <%= @manuscript.remarks %>
+  <%= @manuscript.remarks.gsub(/(￥r￥n|￥r|￥n)/, "") %>
 </p>
 
 <%= link_to 'Edit', edit_manuscript_path(@manuscript) %> |
