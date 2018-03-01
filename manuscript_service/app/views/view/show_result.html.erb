@@ -1,16 +1,20 @@
+<h1>類似求人</h1>
+
 <table class = 'result'>
   <thead>
     <tr>
-      <th>タイトル</th>
-      <th>お仕事内容</th>
+      <th width='10%'>タイトル</th>
+      <th width='60%'>お仕事内容</th>
+      <th width='25%'>備考</th>
       <!-- <th colspan="3"></th> -->
     </tr>
   </thead>
   <% @manuscripts.each do |manuscript|%>
     <tr>
-      <td><%= manuscript.title %></td>
-      <td><%= manuscript.job_content %></td>
+      <td><%= manuscript.title.gsub(/(￥r￥n|￥r|￥n)/, "") %></td>
+      <td><%= manuscript.job_content.gsub(/(￥r￥n|￥r|￥n)/, "") %></td>
+      <td><%= manuscript.remarks.gsub(/(￥r￥n|￥r|￥n)/, "") %></td>
+      <td><%= link_to '詳細', manuscript %></td>
     </tr>
   <% end %>
-
 </table>

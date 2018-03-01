@@ -17,12 +17,12 @@
     <% @manuscripts.each do |manuscript| %>
       <tr>
         <td><%= manuscript.company %></td>
-        <td><%= manuscript.title %></td>
-        <td><%= manuscript.job_content %></td>
-        <td><%= manuscript.remarks %></td>
+        <td><%= manuscript.title.gsub(/(￥r￥n|￥r|￥n)/, "") %></td>
+        <td><%= manuscript.job_content.gsub(/(￥r￥n|￥r|￥n)/, "") %></td>
+        <td><%= manuscript.remarks.gsub(/(￥r￥n|￥r|￥n)/, "") %></td>
         <td><%= link_to 'Show', manuscript %></td>
-        <td><%= link_to 'Edit', edit_manuscript_path(manuscript) %></td>
-        <td><%= link_to 'Destroy', manuscript, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <!-- <td><%= link_to 'Edit', edit_manuscript_path(manuscript) %></td> -->
+        <!-- <td><%= link_to 'Destroy', manuscript, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
     <% end %>
   </tbody>
