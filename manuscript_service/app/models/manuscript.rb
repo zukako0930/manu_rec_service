@@ -10,7 +10,7 @@ class Manuscript < ApplicationRecord
 
   def self.pytest(search)
     if search
-      search_words = search.split(" ")
+      search_words = search.split(/[[:blank:]]/) #空白で単語を区切る
       CSV.open('search_words.csv','w') do |words|
         words << search_words
       end
