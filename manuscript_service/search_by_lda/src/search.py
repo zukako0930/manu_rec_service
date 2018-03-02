@@ -1,4 +1,5 @@
 import os
+import csv
 import itertools
 import pandas as pd
 from gensim import corpora, models, similarities
@@ -12,12 +13,17 @@ lda = gensim.models.LdaModel.load(os.path.dirname(os.path.abspath(__file__))+'/d
 csv_path = os.path.dirname(os.path.abspath(__file__))+'/data/300/predict_300.csv'
 data_path = os.path.dirname(os.path.abspath(__file__))+'/data/posting_info_baitoru_sorted.txt'
 def input_req(input_list):
-    tmp = input()
-    if tmp:
-        input_list.append(tmp)
-        input_req(input_list)
-    else:
-        pass
+    with open('search_words.csv','r') as f:
+        reader = csv.reader(f)
+        for row in reader:
+            for word in row:
+                input_list.append(word)
+    # tmp = input()
+    # if tmp:
+    #     input_list.append(tmp)
+    #     input_req(input_list)
+    # else:
+    #     pass
 def load(dic_path, cor_path):
     dic = corpora.Dictionary.load_from_text(dic_path)
     cor = corpora.MmCorpus(cor_path)
