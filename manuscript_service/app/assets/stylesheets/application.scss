@@ -14,3 +14,13 @@
  *= require_self
  */
 @import "bootstrap";
+
+@media (min-width: 768px){
+.navbar-center{
+		padding-top: 2%;
+    margin: 0 auto;
+    display: table;
+    table-layout: fixed;
+    float:none;
+}
+}

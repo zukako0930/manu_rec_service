@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<div class="container">
 <h1>Manuscripts</h1>
 <%= form_tag manuscripts_path, :method => 'get' do %>
 <%= text_field_tag :search, params[:search] %>
@@ -23,8 +23,8 @@
       <tr>
         <td><%= manuscript.company %></td>
         <td><%= manuscript.title.gsub(/(￥r￥n|￥r|￥n)/, "") %></td>
-        <td><%= manuscript.job_content.gsub(/(￥r￥n|￥r|￥n)/, "") %></td>
-        <td><%= manuscript.remarks.gsub(/(￥r￥n|￥r|￥n)/, "") %></td>
+        <td><%= manuscript.job_content.gsub(/(￥r￥n|￥r|￥n)/, "").truncate(200) %></td>
+        <td><%= manuscript.remarks.gsub(/(￥r￥n|￥r|￥n)/, "").truncate(50) %></td>
         <td><%= link_to 'Show', manuscript %></td>
         <!-- <td><%= link_to 'Edit', edit_manuscript_path(manuscript) %></td> -->
         <!-- <td><%= link_to 'Destroy', manuscript, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
@@ -37,4 +37,5 @@
 
 <br>
 
-<%= link_to 'New Manuscript', new_manuscript_path %>
+<!-- <%= link_to 'New Manuscript', new_manuscript_path %> -->
+</div>
