@@ -15,8 +15,8 @@ ActiveRecord::Schema.define(version: 20180227062159) do
   create_table "manuscripts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "company"
     t.string "title"
-    t.string "job_content"
-    t.string "remarks"
+    t.string "job_content", limit: 2000
+    t.string "remarks", limit: 2000
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

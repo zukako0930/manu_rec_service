@@ -56,7 +56,9 @@ def get_sentence(topic_list, csv_path, data_path):
             if i in ans:
                 print(line)
             i = i+1
-
+    with open('ans_id.csv','w') as a:
+        writer = csv.writer(a)
+        writer.writerow(ans)
 
 if __name__=='__main__':
     #x = ['パン','接客','初心者']

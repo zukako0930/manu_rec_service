@@ -30,6 +30,8 @@
         <!-- <td><%= link_to 'Destroy', manuscript, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
     <% end %>
+    <%= will_paginate @manuscripts, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer,:previous_label=>'前', :next_label=>'次', class:"navbar-center"%>
+
   </tbody>
 </table>
 
