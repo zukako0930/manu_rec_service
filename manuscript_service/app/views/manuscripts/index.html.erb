@@ -1,12 +1,17 @@
 <p id="notice"><%= notice %></p>
 <div class="container">
-<h1>Manuscripts</h1>
-<%= form_tag manuscripts_path, :method => 'get' do %>
-<%= text_field_tag :search, params[:search] %>
-<%= submit_tag "Search", :name => nil %>
-<% end %>
-<!-- この入力をスペース区切りでcsvに書き出す。 -->
-
+お手本の求人情報が見つかる！
+<h1>過去リクサーチ</h1>
+<div class="col-5">
+  <%= form_tag manuscripts_path, :method => 'get' do %>
+    <div class="input-group mb-3">
+      <%= text_field_tag :search, params[:search], class:"form-control" %>
+      <div class="input-group-append">
+        <%= submit_tag "検索する", :name => nil, class:'btn btn-primary' %>
+      </div>
+    </div>
+  <% end %>
+</div>
 <table>
   <thead>
     <tr>
@@ -26,15 +31,9 @@
         <td><%= manuscript.job_content.gsub(/(￥r￥n|￥r|￥n)/, "").truncate(200) %></td>
         <td><%= manuscript.remarks.gsub(/(￥r￥n|￥r|￥n)/, "").truncate(50) %></td>
         <td><%= link_to 'Show', manuscript %></td>
-        <!-- <td><%= link_to 'Edit', edit_manuscript_path(manuscript) %></td> -->
-        <!-- <td><%= link_to 'Destroy', manuscript, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
     <% end %>
     <%= will_paginate @manuscripts, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer,:previous_label=>'前', :next_label=>'次', class:"navbar-center"%>
-
   </tbody>
 </table>
-
-<br>
-
 </div>
