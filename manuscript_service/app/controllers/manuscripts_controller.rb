@@ -6,13 +6,6 @@ class ManuscriptsController < ApplicationController
   def index
     @manuscripts = Manuscript.pytest(params[:search]).paginate(:page => params[:page], :per_page => 30)
     #現状ではsearch_words.csv
-    # pytestによって出力されたファイルからidを読んで.whereで選択する。
-    # idxs = CSV.read('test.csv', headers: false)[0] #idxsは２次元配列なので要素を取り出す
-    # @manuscripts = Manuscript.search_by_index(idxs)
-    # @manuscripts = Manuscript.all
-    # render 'view/show_result'
-    # @manuscripts = Manuscript.search(params[:search])
-    # @manuscripts = Manuscript.all
   end
 
   # GET /manuscripts/1

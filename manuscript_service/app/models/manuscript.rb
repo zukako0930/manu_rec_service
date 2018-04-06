@@ -18,8 +18,8 @@ class Manuscript < ApplicationRecord
       python_path = Rails.root.join('search_by_lda').to_s
       system("cd #{python_path}")
       system("python #{file_path}")
-      idxs = CSV.read('test.csv', headers: false)[0]
-      Manuscript.search_by_index(idxs)
+      ids = CSV.read('test.csv', headers: false)[0]
+      Manuscript.where(id:ids)
     else
       Manuscript.all
     end
