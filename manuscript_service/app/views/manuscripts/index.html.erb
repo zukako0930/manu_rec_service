@@ -12,7 +12,24 @@
     </div>
   <% end %>
 </div>
-<table>
+
+<% @manuscripts.each do |manuscript|%>
+<div style="padding:2%;">
+  <div class="container box">
+  <div style="border-bottom:1px solid lightgray;">
+    <%= manuscript.company %>
+  </div>
+  <div style="font-size:18pt;font-weight:bold;"><%= manuscript.title.gsub(/(￥r￥n|￥r|￥n)/, "") %></div>
+  <%= manuscript.job_content.gsub(/(￥r￥n|￥r|￥n)/, "") %><br>
+  <div style="border-bottom:1px solid lightgray;">
+    <span style="font-weight:bold;">備考</span> <%= manuscript.remarks.gsub(/(￥r￥n|￥r|￥n)/, "").truncate(50) %>
+  </div>
+  <%= link_to '詳細', manuscript%>
+  </div>
+</div>
+<% end %>
+
+<!-- <table>
   <thead>
     <tr>
       <th>Company</th>
@@ -22,7 +39,6 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-
   <tbody>
     <% @manuscripts.each do |manuscript| %>
       <tr>
@@ -35,5 +51,5 @@
     <% end %>
     <%= will_paginate @manuscripts, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer,:previous_label=>'前', :next_label=>'次', class:"navbar-center"%>
   </tbody>
-</table>
+</table> -->
 </div>
