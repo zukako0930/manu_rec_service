@@ -17,39 +17,16 @@
 <div style="padding:2%;">
   <div class="container box">
   <div style="border-bottom:1px solid lightgray;">
-    <%= manuscript.company %>
+    <%= manuscript.f_comp_name %>
   </div>
-  <div style="font-size:18pt;font-weight:bold;"><%= manuscript.title.gsub(/(￥r￥n|￥r|￥n)/, "") %></div>
-  <%= manuscript.job_content.gsub(/(￥r￥n|￥r|￥n)/, "") %><br>
+
+  <div style="font-size:18pt;font-weight:bold;"><%= manuscript.f_job_title%></div>
+  <%= manuscript.f_job_desc_text%><br>
   <div style="border-bottom:1px solid lightgray;">
-    <span style="font-weight:bold;">備考</span> <%= manuscript.remarks.gsub(/(￥r￥n|￥r|￥n)/, "").truncate(50) %>
+    <span style="font-weight:bold;">備考</span> <%= manuscript.f_job_work_st_date%>
   </div>
-  <%= link_to '詳細', manuscript%>
   </div>
 </div>
 <% end %>
-
-<!-- <table>
-  <thead>
-    <tr>
-      <th>Company</th>
-      <th>Title</th>
-      <th>Job content</th>
-      <th>Remarks</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @manuscripts.each do |manuscript| %>
-      <tr>
-        <td><%= manuscript.company %></td>
-        <td><%= manuscript.title.gsub(/(￥r￥n|￥r|￥n)/, "") %></td>
-        <td><%= manuscript.job_content.gsub(/(￥r￥n|￥r|￥n)/, "").truncate(200) %></td>
-        <td><%= manuscript.remarks.gsub(/(￥r￥n|￥r|￥n)/, "").truncate(50) %></td>
-        <td><%= link_to 'Show', manuscript %></td>
-      </tr>
-    <% end %>
-    <%= will_paginate @manuscripts, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer,:previous_label=>'前', :next_label=>'次', class:"navbar-center"%>
-  </tbody>
-</table> -->
+<%= will_paginate @manuscripts, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer,:previous_label=>'前', :next_label=>'次', class:"navbar-center"%>
 </div>
