@@ -2,23 +2,20 @@
 
 <p>
   <strong>Company:</strong>
-  <%= @manuscript.company %>
+  <%= @manuscript.f_comp_name %>
 </p>
 
 <p>
   <strong>Title:</strong>
-  <%= @manuscript.title.gsub(/(￥r￥n|￥r|￥n)/, "") %>
+  <%= @manuscript.f_job_title.gsub(/(￥r￥n|￥r|￥n)/, "") %>
 </p>
 
 <p height='250px'>
   <strong>Job content:</strong>
-  <%= @manuscript.job_content.gsub(/(￥r￥n|￥r|￥n)/, "") %>
+  <%= @manuscript.f_job_desc_text.gsub(/(￥r￥n|￥r|￥n)/, "") %>
 </p>
 
-<p>
-  <strong>Remarks:</strong>
-  <%= @manuscript.remarks.gsub(/(￥r￥n|￥r|￥n)/, "") %>
-</p>
+
 
 <%= link_to 'Edit', edit_manuscript_path(@manuscript) %> |
 <%= link_to 'Back', manuscripts_path %>

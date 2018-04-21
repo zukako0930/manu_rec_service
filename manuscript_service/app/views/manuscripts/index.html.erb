@@ -12,7 +12,7 @@
     </div>
   <% end %>
 </div>
-
+<%= will_paginate @manuscripts, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer,:previous_label=>'前', :next_label=>'次', class:"navbar-center"%>
 <% @manuscripts.each do |manuscript|%>
 <div style="padding:2%;">
   <div class="container box">
@@ -25,8 +25,8 @@
   <div style="border-bottom:1px solid lightgray;">
     <span style="font-weight:bold;">備考</span> <%= manuscript.f_job_work_st_date%>
   </div>
+  <%= link_to '詳細', manuscript_url(manuscript.f_job_no)%>
   </div>
 </div>
 <% end %>
-<%= will_paginate @manuscripts, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer,:previous_label=>'前', :next_label=>'次', class:"navbar-center"%>
 </div>

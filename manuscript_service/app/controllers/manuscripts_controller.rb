@@ -65,11 +65,11 @@ class ManuscriptsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_manuscript
-      @manuscript = Manuscript.find(params[:id])
+      @manuscript = Manuscript.find_by(f_job_no:params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def manuscript_params
-      params.require(:manuscript).permit(:company, :title, :job_content, :remarks)
+      params.require(:manuscript).permit(:f_comp_name, :title, :job_content, :remarks)
     end
 end
