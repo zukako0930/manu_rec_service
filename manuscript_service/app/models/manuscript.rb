@@ -19,7 +19,7 @@ class Manuscript < ApplicationRecord
       system("cd #{python_path}")
       system("python #{file_path}")
       ids = CSV.read('test.csv', headers: false)[0]
-      Manuscript.where(id:ids)
+      Manuscript.where(f_job_no:ids) #ここで検索処理も記述している。
     else
       Manuscript.all
     end
